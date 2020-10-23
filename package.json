@@ -5,6 +5,9 @@
   "author": "Trevor Rice <trevor.rice@hey.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "serve": "vite serve examples"
+  },
   "workspaces": [
     "packages/*"
   ],
