@@ -5,8 +5,13 @@
   "author": "Trevor Rice <trevor.rice@hey.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "^3.22.1"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.2"
   }
 }
