@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "vite serve examples"
+    "serve": "vite serve"
   },
   "workspaces": [
     "packages/*"
