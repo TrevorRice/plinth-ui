@@ -1,0 +1,6 @@
+{
+  "name": "@plinth-ui/menu-button",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "license": "MIT"
+}
