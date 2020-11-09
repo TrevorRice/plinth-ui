@@ -1,5 +1,5 @@
 <script>
-import { h, inject, cloneVNode } from 'vue'
+import { h, cloneVNode, computed } from 'vue'
 
 export default {
   props: {
@@ -9,13 +9,13 @@ export default {
     },
   },
   setup(props, { slots }) {
-    const tabsContext = inject('tabsContext')
-    const tabs = slots
-      .default()
-      .map((node, index) =>
-        cloneVNode(node, { disabled: index === tabsContext.activeIndex })
-      )
-    return () => h(props.as, {}, tabs)
+    const tabs = computed(() => {
+      return slots.default().map((node, index) => cloneVNode(node, { index }))
+    })
+    return { tabs }
+  },
+  render() {
+    return h(this.as, this.tabs)
   },
 }
 </script>
