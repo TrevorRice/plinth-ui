@@ -5,6 +5,11 @@
 <script>
 import { provide, reactive, toRefs } from 'vue'
 
+const DisclosureStates = {
+  Open: 'open',
+  Collapsed: 'collapsed',
+}
+
 export default {
   props: {
     id: {
@@ -22,6 +27,7 @@ export default {
     const updateOpen = (open) => emit('update:open', open)
     const disclosureContext = reactive({ id, open, updateOpen })
     provide('disclosureContext', disclosureContext)
+    provide('disclosureStates', DisclosureStates)
   },
 }
 </script>
