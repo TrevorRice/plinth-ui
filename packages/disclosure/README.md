@@ -5,8 +5,10 @@
 ## Installation
 
 ```
+// npm
 npm install @plinth-ui/disclosure
-# or
+
+// yarn
 yarn add @plinth-ui/disclosure
 ```
 
@@ -22,10 +24,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 
 #### Props
 
-| Name   | Type    | Validation | Default  | Description                            |
-| ------ | ------- | ---------- | -------- | -------------------------------------- |
-| `id`   | string  | —          | `polite` | An ID                                  |
-| `open` | boolean | —          | `false`  | Whether or not the disclosure is open. |
+| Name   | Type    | Validation | Default            | Description                                                                                                |
+| ------ | ------- | ---------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `id`   | String  | —          | Randomly generated | An id used to assign ARIA and id attributes to nested `DisclosureButton` and `DisclosurePanel` components. |
+| `open` | Boolean | —          | `false`            | Whether or not the disclosure is open.                                                                     |
 
 #### Slots
 
@@ -43,9 +45,9 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 
 #### Props
 
-| Name | Type   | Validation  | Default  | Description |
-| ---- | ------ | ----------- | -------- | ----------- |
-| `as` | string | Placeholder | `polite` | An ID       |
+| Name | Type   | Validation | Default  | Description                                                       |
+| ---- | ------ | ---------- | -------- | ----------------------------------------------------------------- |
+| `as` | String | —          | `button` | The element or component the `DisclosureButton` should render as. |
 
 #### Slots
 
@@ -57,9 +59,9 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 
 #### Props
 
-| Name | Type   | Validation  | Default  | Description |
-| ---- | ------ | ----------- | -------- | ----------- |
-| `as` | string | Placeholder | `polite` | An ID       |
+| Name | Type   | Validation | Default | Description                                                      |
+| ---- | ------ | ---------- | ------- | ---------------------------------------------------------------- |
+| `as` | String | —          | `div`   | The element or component the `DisclosurePanel` should render as. |
 
 #### Slots
 
