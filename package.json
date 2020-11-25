@@ -12,8 +12,9 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@testing-library/vue": "^6.1.0",
     "@vue/compiler-sfc": "^3.0.2",
-    "@vue/test-utils": "^2.0.0-beta.7",
+    "@vue/test-utils": "^2.0.0-beta.10",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-vue": "^7.1.0",
