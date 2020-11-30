@@ -15,6 +15,7 @@ yarn add @plinth-ui/alert
 ### Usage
 
 ```
+test
 import Alert from '@plinth-ui/alert'
 ```
 
