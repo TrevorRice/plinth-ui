@@ -5,8 +5,10 @@
 ## Installation
 
 ```
+// npm
 npm install @plinth-ui/alert
-# or
+
+// yarn
 yarn add @plinth-ui/alert
 ```
 
