@@ -9,9 +9,15 @@
 </template>
 
 <script>
-import Disclosure from '../../../../packages/disclosure/src/index.js'
+import Disclosure from '../../../../packages/disclosure/src/Disclosure.vue'
 import DisclosureButton from '../../../../packages/disclosure/src/DisclosureButton.vue'
 import DisclosurePanel from '../../../../packages/disclosure/src/DisclosurePanel.vue'
+
+// import {
+//   Disclosure,
+//   DisclosureButton,
+//   DisclosurePanel,
+// } from '@plinth-ui/disclosure'
 
 export default {
   components: {

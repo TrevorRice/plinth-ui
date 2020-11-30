@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "vite serve",
+    "serve": "vite",
     "test": "jest"
   },
   "workspaces": [
@@ -27,7 +27,8 @@
     "jest-axe": "^4.1.0",
     "lerna": "^3.22.1",
     "prettier": "2.1.2",
-    "vite": "^1.0.0-rc.13"
+    "vite": "^1.0.0-rc.13",
+    "vue-jest": "^5.0.0-alpha.6"
   },
   "peerDependencies": {
     "vue": "^3.0.2"

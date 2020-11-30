@@ -1,3 +1,4 @@
+<script>
 import { provide, reactive, toRefs } from 'vue'
 
 const DisclosureStates = { Open: 'open', Collapsed: 'collapsed' }
@@ -23,3 +24,4 @@ export default {
     return () => slots.default()
   },
 }
+</script>
