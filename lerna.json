@@ -6,7 +6,8 @@
       "message": "chore(release): publish"
     },
     "publish": {
-      "verifyAccess": false
+      "verifyAccess": false,
+      "registry": "http://localhost:4873/"
     }
   },
   "version": "independent",
