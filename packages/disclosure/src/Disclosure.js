@@ -1,14 +1,6 @@
-<template>
-  <slot />
-</template>
-
-<script>
 import { provide, reactive, toRefs } from 'vue'
 
-const DisclosureStates = {
-  Open: 'open',
-  Collapsed: 'collapsed',
-}
+const DisclosureStates = { Open: 'open', Collapsed: 'collapsed' }
 
 export default {
   props: {
@@ -22,12 +14,12 @@ export default {
     },
   },
   emits: ['update:open'],
-  setup(props, { emit }) {
+  setup(props, { slots, emit }) {
     const { id, open } = toRefs(props)
     const updateOpen = (open) => emit('update:open', open)
     const disclosureContext = reactive({ id, open, updateOpen })
     provide('disclosureContext', disclosureContext)
     provide('disclosureStates', DisclosureStates)
+    return () => slots.default()
   },
 }
-</script>

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Disclosure from '../../../../packages/disclosure/src/Disclosure.vue'
+import Disclosure from '../../../../packages/disclosure/src/index.js'
 import DisclosureButton from '../../../../packages/disclosure/src/DisclosureButton.vue'
 import DisclosurePanel from '../../../../packages/disclosure/src/DisclosurePanel.vue'
 
