@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "serve": "vite",
-    "test": "jest"
+    "test": "jest",
+    "publish": "lerna publish"
   },
   "workspaces": [
     "packages/*"
