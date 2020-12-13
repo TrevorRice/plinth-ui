@@ -1,5 +1,5 @@
 {
-  "name": "tabs",
+  "name": "@plinth-ui/tabs",
   "version": "0.0.0",
   "main": "src/index.js",
   "license": "MIT"

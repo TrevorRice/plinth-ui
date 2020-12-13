@@ -5,8 +5,10 @@
 ## Installation
 
 ```
+// npm
 npm install @plinth-ui/tabs
-# or
+
+// yarn
 yarn add @plinth-ui/tabs
 ```
 
