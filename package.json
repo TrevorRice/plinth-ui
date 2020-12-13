@@ -1,6 +1,5 @@
 {
   "name": "plinth-ui",
-  "version": "0.0.0",
   "main": "index.js",
   "author": "Trevor Rice <trevor.rice@hey.com>",
   "license": "MIT",
