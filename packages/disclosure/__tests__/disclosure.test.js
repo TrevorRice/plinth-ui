@@ -1,4 +1,4 @@
-import Disclosure from '../src/Disclosure.vue'
+import Disclosure from '../src/disclosure'
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/vue'
 
