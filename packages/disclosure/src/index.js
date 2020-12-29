@@ -1,6 +1,6 @@
-import Disclosure from './Disclosure.vue'
-import DisclosureButton from './DisclosureButton.vue'
-import DisclosurePanel from './DisclosurePanel.vue'
+import Disclosure from './disclosure'
+import DisclosureButton from './disclosure-button'
+import DisclosurePanel from './disclosure-panel'
 
 export default {
   Disclosure,

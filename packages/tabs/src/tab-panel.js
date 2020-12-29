@@ -1,13 +1,7 @@
-<template>
-  <component :is="as" v-show="active">
-    <slot />
-  </component>
-</template>
-
-<script>
-import { inject, computed } from 'vue'
+import { h, inject, computed } from 'vue'
 
 export default {
+  name: 'TabPanel',
   props: {
     as: {
       type: String,
@@ -18,10 +12,14 @@ export default {
       required: true,
     },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const tabsContext = inject('tabsContext')
     const active = computed(() => tabsContext.activeIndex === props.index)
-    return { active }
+    return () =>
+      h(
+        props.as,
+        { style: [{ display: active.value ? 'block' : 'none' }] },
+        slots.default()
+      )
   },
 }
-</script>

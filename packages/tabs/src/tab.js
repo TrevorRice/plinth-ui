@@ -1,11 +1,4 @@
-<template>
-  <component :is="as" @click="updateActiveTab(index)">
-    <slot :active="active" />
-  </component>
-</template>
-
-<script>
-import { inject, computed } from 'vue'
+import { h, inject, computed } from 'vue'
 
 export default {
   name: 'Tab',
@@ -19,10 +12,14 @@ export default {
       required: true,
     },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const tabsContext = inject('tabsContext')
     const active = computed(() => tabsContext.activeIndex === props.index)
-    return { active, updateActiveTab: tabsContext.updateActiveTab }
+    return () =>
+      h(
+        props.as,
+        { onClick: () => tabsContext.updateActiveTab(props.index) },
+        slots.default({ active: active.value })
+      )
   },
 }
-</script>

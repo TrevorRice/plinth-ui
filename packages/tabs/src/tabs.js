@@ -1,13 +1,7 @@
-<template>
-  <component :is="as">
-    <slot />
-  </component>
-</template>
-
-<script>
-import { provide, reactive, computed, toRefs } from 'vue'
+import { provide, reactive, toRefs } from 'vue'
 
 export default {
+  name: 'Tabs',
   props: {
     as: {
       type: String,
@@ -24,7 +18,7 @@ export default {
     },
   },
   emits: ['update:index'],
-  setup(props, { emit }) {
+  setup(props, { slots, emit }) {
     const { index: activeIndex } = toRefs(props)
     const updateActiveTab = (index) => emit('update:index', index)
     const tabsContext = reactive({
@@ -32,6 +26,6 @@ export default {
       updateActiveTab,
     })
     provide('tabsContext', tabsContext)
+    return () => slots.default()
   },
 }
-</script>

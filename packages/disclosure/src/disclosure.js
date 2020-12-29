@@ -1,9 +1,9 @@
-<script>
 import { provide, reactive, toRefs } from 'vue'
 
 const DisclosureStates = { Open: 'open', Collapsed: 'collapsed' }
 
 export default {
+  name: 'Disclosure',
   props: {
     id: {
       type: [String, Number],
@@ -24,4 +24,3 @@ export default {
     return () => slots.default()
   },
 }
-</script>

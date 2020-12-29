@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import Tabs from '../../../../packages/tabs/src/Tabs.vue'
-import TabList from '../../../../packages/tabs/src/TabList.vue'
-import Tab from '../../../../packages/tabs/src/Tab.vue'
-import TabPanels from '../../../../packages/tabs/src/TabPanels.vue'
-import TabPanel from '../../../../packages/tabs/src/TabPanel.vue'
+import Tabs from '../../../../packages/tabs/src/tabs.js'
+import TabList from '../../../../packages/tabs/src/tab-list.js'
+import Tab from '../../../../packages/tabs/src/tab.js'
+import TabPanels from '../../../../packages/tabs/src/tab-panels.js'
+import TabPanel from '../../../../packages/tabs/src/tab-panel.js'
 // import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@plinth-ui/tabs'
 
 export default {
