@@ -1,7 +1,7 @@
-import { h, cloneVNode } from 'vue'
+import { defineComponent, h, cloneVNode } from 'vue'
 
-export default {
-  name: 'TabPanels',
+export default defineComponent({
+  name: 'TabList',
   props: {
     as: {
       type: String,
@@ -9,9 +9,9 @@ export default {
     },
   },
   setup(props, { slots }) {
-    const tabPanels = slots
+    const tabs = slots
       .default()
       .map((node, index) => cloneVNode(node, { index }))
-    return () => h(props.as, tabPanels)
+    return () => h(props.as, tabs)
   },
-}
+})

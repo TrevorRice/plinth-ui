@@ -1,12 +1,12 @@
-import { h } from 'vue'
+import { defineComponent, h } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'Alert',
   props: {
     type: {
       type: String,
       default: 'polite',
-      validator: (value) => ['assertive', 'polite'].includes(value),
+      validator: (value: string) => ['assertive', 'polite'].includes(value),
     },
   },
   setup(props, { slots }) {
@@ -17,4 +17,4 @@ export default {
     const role = props.type === 'assertive' ? 'alert' : 'status'
     return () => h('div', { role }, slots.default())
   },
-}
+})

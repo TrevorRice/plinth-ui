@@ -1,6 +1,7 @@
-import { h, inject, computed } from 'vue'
+import { defineComponent, h, inject, toRefs, computed } from 'vue'
+import { TabsContext } from './tabs'
 
-export default {
+export default defineComponent({
   name: 'TabPanel',
   props: {
     as: {
@@ -13,8 +14,9 @@ export default {
     },
   },
   setup(props, { slots }) {
-    const tabsContext = inject('tabsContext')
-    const active = computed(() => tabsContext.activeIndex === props.index)
+    const context = inject<TabsContext>('tabsContext')
+    const { activeIndex } = toRefs(context)
+    const active = computed(() => activeIndex.value === props.index)
     return () =>
       h(
         props.as,
@@ -22,4 +24,4 @@ export default {
         slots.default()
       )
   },
-}
+})

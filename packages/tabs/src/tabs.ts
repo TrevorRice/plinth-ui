@@ -1,6 +1,14 @@
-import { provide, reactive, toRefs } from 'vue'
+import { defineComponent, provide, reactive, Ref, toRefs } from 'vue'
 
-export default {
+export interface TabsContext {
+  // State
+  activeIndex: Ref<number>
+
+  // State mutators
+  updateActiveTab(index: number): void
+}
+
+export default defineComponent({
   name: 'Tabs',
   props: {
     as: {
@@ -14,18 +22,18 @@ export default {
     orientation: {
       type: String,
       default: 'horizontal',
-      validator: (value) => ['horizontal', 'vertical'].includes(value),
+      validator: (value: string) => ['horizontal', 'vertical'].includes(value),
     },
   },
   emits: ['update:index'],
   setup(props, { slots, emit }) {
     const { index: activeIndex } = toRefs(props)
     const updateActiveTab = (index) => emit('update:index', index)
-    const tabsContext = reactive({
+    const context = reactive<TabsContext>({
       activeIndex,
       updateActiveTab,
     })
-    provide('tabsContext', tabsContext)
+    provide('tabsContext', context)
     return () => slots.default()
   },
-}
+})

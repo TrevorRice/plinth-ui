@@ -1,11 +1,11 @@
-import { h, inject, toRefs } from 'vue'
+import { defineComponent, h, inject, toRefs } from 'vue'
+import { DisclosureStates, DisclosureContext } from './disclosure'
 
-export default {
+export default defineComponent({
   name: 'DisclosurePanel',
   setup(props, { slots }) {
-    const disclosureStates = inject('disclosureStates')
-    const disclosureContext = inject('disclosureContext')
-    const { id, open } = toRefs(disclosureContext)
+    const context = inject<DisclosureContext>('disclosureContext')
+    const { id, open } = toRefs(context)
 
     return () =>
       h(
@@ -15,11 +15,11 @@ export default {
           tabindex: -1,
           'data-plinth-disclosure-panel': '',
           'data-plinth-disclosure-panel-state': open.value
-            ? disclosureStates.Open
-            : disclosureStates.Collapsed,
+            ? DisclosureStates.Open
+            : DisclosureStates.Collapsed,
           style: [{ display: open.value ? 'block' : 'none' }],
         },
         slots.default()
       )
   },
-}
+})

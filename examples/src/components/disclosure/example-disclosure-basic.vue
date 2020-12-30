@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Disclosure from '../../../../packages/disclosure/src/disclosure.js'
-import DisclosureButton from '../../../../packages/disclosure/src/disclosure-button.js'
-import DisclosurePanel from '../../../../packages/disclosure/src/disclosure-panel.js'
+import Disclosure from '../../../../packages/disclosure/src/disclosure.ts'
+import DisclosureButton from '../../../../packages/disclosure/src/disclosure-button.ts'
+import DisclosurePanel from '../../../../packages/disclosure/src/disclosure-panel.ts'
 
 // import {
 //   Disclosure,
