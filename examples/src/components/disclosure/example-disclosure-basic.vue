@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Disclosure from '../../../../packages/disclosure/src/Disclosure.vue'
-import DisclosureButton from '../../../../packages/disclosure/src/DisclosureButton.vue'
-import DisclosurePanel from '../../../../packages/disclosure/src/DisclosurePanel.vue'
+import Disclosure from '../../../../packages/disclosure/src/disclosure.ts'
+import DisclosureButton from '../../../../packages/disclosure/src/disclosure-button.ts'
+import DisclosurePanel from '../../../../packages/disclosure/src/disclosure-panel.ts'
 
 // import {
 //   Disclosure,

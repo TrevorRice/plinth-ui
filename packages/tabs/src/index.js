@@ -1,8 +1,8 @@
-import Tabs from './Tabs.vue'
-import TabList from './TabList.vue'
-import Tab from './Tab.vue'
-import TabPanels from './TabPanels.vue'
-import TabPanel from './TabPanel.vue'
+import Tabs from './tabs'
+import TabList from './tab-list'
+import Tab from './tab'
+import TabPanels from './tab-panels'
+import TabPanel from './tab-panel'
 
 export default {
   Tabs,
