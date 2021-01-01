@@ -1,4 +1,4 @@
-import { defineComponent, h, inject, toRefs, computed } from 'vue'
+import { defineComponent, h, inject, computed } from 'vue'
 import { TabsContext } from './tabs'
 
 export default defineComponent({
@@ -14,14 +14,13 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    const context = inject<TabsContext>('tabsContext')
-    const { activeIndex } = toRefs(context)
-    const active = computed(() => activeIndex.value === props.index)
+    const context = inject(TabsContext)
+    const active = computed(() => context?.activeIndex.value === props.index)
     return () =>
       h(
         props.as,
         { style: [{ display: active.value ? 'block' : 'none' }] },
-        slots.default()
+        slots.default!()
       )
   },
 })

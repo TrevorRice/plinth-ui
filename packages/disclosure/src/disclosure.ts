@@ -1,6 +1,6 @@
-import { defineComponent, Ref, provide, reactive, toRefs } from 'vue'
+import { defineComponent, InjectionKey, Ref, provide, toRefs } from 'vue'
 
-export interface DisclosureContext {
+type DiscolsureStateDefinition = {
   // State
   id: Ref<string | number>
   open: Ref<boolean>
@@ -13,6 +13,10 @@ export enum DisclosureStates {
   Open = 'open',
   Collapsed = 'collapsed',
 }
+
+export const DisclosureContext: InjectionKey<DiscolsureStateDefinition> = Symbol(
+  'DisclosureContext'
+)
 
 export default defineComponent({
   name: 'Disclosure',
@@ -28,14 +32,10 @@ export default defineComponent({
   },
   emits: ['update:open'],
   setup(props, { slots, emit }) {
+    const updateOpen = (open: boolean) => emit('update:open', open)
     const { id, open } = toRefs(props)
-    const updateOpen = (open) => emit('update:open', open)
-    const context = reactive<DisclosureContext>({
-      id,
-      open,
-      updateOpen,
-    })
-    provide('disclosureContext', context)
-    return () => slots.default()
+    const context = { id, open, updateOpen }
+    provide(DisclosureContext, context)
+    return () => slots.default!()
   },
 })

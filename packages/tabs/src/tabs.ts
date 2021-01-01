@@ -1,12 +1,16 @@
-import { defineComponent, provide, reactive, Ref, toRefs } from 'vue'
+import { defineComponent, InjectionKey, provide, Ref, toRefs } from 'vue'
 
-export interface TabsContext {
+type TabsStateDefinition = {
   // State
   activeIndex: Ref<number>
 
   // State mutators
   updateActiveTab(index: number): void
 }
+
+export const TabsContext: InjectionKey<TabsStateDefinition> = Symbol(
+  'TabsContext'
+)
 
 export default defineComponent({
   name: 'Tabs',
@@ -27,13 +31,10 @@ export default defineComponent({
   },
   emits: ['update:index'],
   setup(props, { slots, emit }) {
+    const updateActiveTab = (index: number) => emit('update:index', index)
     const { index: activeIndex } = toRefs(props)
-    const updateActiveTab = (index) => emit('update:index', index)
-    const context = reactive<TabsContext>({
-      activeIndex,
-      updateActiveTab,
-    })
-    provide('tabsContext', context)
-    return () => slots.default()
+    const context = { activeIndex, updateActiveTab }
+    provide(TabsContext, context)
+    return () => slots.default!()
   },
 })
