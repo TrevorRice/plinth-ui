@@ -15,6 +15,6 @@ export default defineComponent({
      * Elements with the role status have an implicit aria-live value of polite and an implicit aria-atomic value of true.
      */
     const role = props.type === 'assertive' ? 'alert' : 'status'
-    return () => h('div', { role }, slots.default())
+    return () => h('div', { role }, slots.default!())
   },
 })

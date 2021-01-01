@@ -9,9 +9,9 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    const tabPanels = slots
-      .default()
-      .map((node, index) => cloneVNode(node, { index }))
+    const tabPanels = slots.default!().map((node, index) =>
+      cloneVNode(node, { index })
+    )
     return () => h(props.as, tabPanels)
   },
 })
