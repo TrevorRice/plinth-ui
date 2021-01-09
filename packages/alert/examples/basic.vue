@@ -1,8 +1,9 @@
 <template>
   <div>
-    <button @click="setAlert">Trigger an alert!</button>
-    <alert v-for="(alert, index) in alerts" :key="index" type="assertive">
-      {{ alert }}
+    <button @click="setAlerts('polite')">Trigger a polite alert!</button>
+    <button @click="setAlerts('assertive')">Trigger an assertive alert!</button>
+    <alert v-for="(alert, index) in alerts" :key="index" :type="alert.type">
+      {{ alert.message }}
     </alert>
   </div>
 </template>
@@ -20,8 +21,11 @@ export default {
     }
   },
   methods: {
-    setAlert() {
-      this.alerts.push(`Alert #${this.alerts.length + 1}`)
+    setAlerts(type) {
+      this.alerts.push({ message: `Alert #${this.alerts.length + 1}`, type })
+      setTimeout(() => {
+        this.alerts = this.alerts.slice(1)
+      }, 5000)
     },
   },
 }
