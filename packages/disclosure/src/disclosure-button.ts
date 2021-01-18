@@ -1,24 +1,26 @@
 import { defineComponent, h, inject } from 'vue'
-import { DisclosureStates, DisclosureContext } from './disclosure'
+import { DisclosureContext } from './disclosure'
 
 export default defineComponent({
   name: 'DisclosureButton',
+  props: {
+    as: {
+      type: String,
+      default: 'button',
+    },
+  },
   setup(props, { slots }) {
     const context = inject(DisclosureContext)
 
     return () =>
       h(
-        'button',
+        props.as,
         {
           'aria-controls': context?.id.value,
           'aria-open': context?.open.value,
-          'data-plinth-disclosure-button': '',
-          'data-plinth-disclosure-button-state': context?.open.value
-            ? DisclosureStates.Open
-            : DisclosureStates.Collapsed,
           onClick: () => context?.updateOpen(!context?.open.value),
         },
-        slots.default!()
+        slots.default!({ open: context?.open.value })
       )
   },
 })

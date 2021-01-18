@@ -2,6 +2,8 @@ import { createWebHistory, createRouter, RouterView } from 'vue-router'
 import Home from './components/Home.vue'
 import AlertBasic from '../../alert/examples/basic.vue'
 import DisclosureBasic from '../../disclosure/examples/basic.vue'
+import DisclosureControlled from '../../disclosure/examples/controlled.vue'
+import DisclosureTransition from '../../disclosure/examples/transition.vue'
 import TabsBasic from '../../tabs/examples/basic.vue'
 
 // Automate
@@ -32,6 +34,16 @@ const routes = [
         name: 'Disclosure (basic)',
         path: '/disclosure/basic',
         component: DisclosureBasic,
+      },
+      {
+        name: 'Disclosure (controlled)',
+        path: '/disclosure/controlled',
+        component: DisclosureControlled,
+      },
+      {
+        name: 'Disclosure (transition)',
+        path: '/disclosure/transition',
+        component: DisclosureTransition,
       },
     ],
   },

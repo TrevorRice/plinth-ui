@@ -1,24 +1,26 @@
 import { defineComponent, h, inject } from 'vue'
-import { DisclosureStates, DisclosureContext } from './disclosure'
+import { DisclosureContext } from './disclosure'
 
 export default defineComponent({
   name: 'DisclosurePanel',
+  props: {
+    as: {
+      type: String,
+      default: 'div',
+    },
+  },
   setup(props, { slots }) {
     const context = inject(DisclosureContext)
 
     return () =>
       h(
-        'div',
+        props.as,
         {
           id: context?.id.value,
           tabindex: -1,
-          'data-plinth-disclosure-panel': '',
-          'data-plinth-disclosure-panel-state': context?.open.value
-            ? DisclosureStates.Open
-            : DisclosureStates.Collapsed,
           style: [{ display: context?.open.value ? 'block' : 'none' }],
         },
-        slots.default!()
+        slots.default!({ open: context?.open.value })
       )
   },
 })

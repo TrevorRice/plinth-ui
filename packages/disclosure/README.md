@@ -1,10 +1,12 @@
 # `@plinth-ui/disclosure`
 
-[WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.2/#disclosure)
+> A disclosure is a button that controls visibility of a section of content. When the controlled content is hidden, it is often styled as a typical push button with a right-pointing arrow or triangle to hint that activating the button will display additional content. When the content is visible, the arrow or triangle typically points down.
+>
+> [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.2/#disclosure)
 
 ## Installation
 
-```
+```sh
 // npm
 npm install @plinth-ui/disclosure
 
@@ -12,9 +14,7 @@ npm install @plinth-ui/disclosure
 yarn add @plinth-ui/disclosure
 ```
 
-### Usage
-
-```
+```sh
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclosure'
 ```
 
@@ -41,6 +41,13 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 | ------------- | ------------------------------------------------ |
 | `update:open` | Emits when a disclosure's open state is changed. |
 
+#### Usage
+
+```vue
+<disclosure>
+</disclosure>
+```
+
 ### DisclosureButton
 
 #### Props
@@ -55,6 +62,13 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 | --------- | ------------------------------ |
 | `default` | Use for the buttons's content. |
 
+#### Usage
+
+```vue
+<disclosure-button>
+</disclosure-button>
+```
+
 ### DisclosurePanel
 
 #### Props
@@ -68,3 +82,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 | Name      | Description                  |
 | --------- | ---------------------------- |
 | `default` | Use for the panel's content. |
+
+#### Usage
+
+```vue
+<disclosure-panel>
+</disclosure-panel>
+```
