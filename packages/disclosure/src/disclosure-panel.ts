@@ -9,18 +9,17 @@ export default defineComponent({
       default: 'div',
     },
   },
-  setup(props, { slots }) {
+  render() {
     const context = inject(DisclosureContext)
-
-    return () =>
-      h(
-        props.as,
-        {
-          id: context?.id.value,
-          tabindex: -1,
-          style: [{ display: context?.open.value ? 'block' : 'none' }],
-        },
-        slots.default!({ open: context?.open.value })
-      )
+    return context?.open.value
+      ? h(
+          this.$props.as,
+          {
+            id: context?.id.value,
+            tabindex: -1,
+          },
+          this.$slots.default!({ open: context?.open.value })
+        )
+      : null
   },
 })
