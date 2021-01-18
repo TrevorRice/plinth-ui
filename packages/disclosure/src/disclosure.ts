@@ -2,11 +2,13 @@ import {
   defineComponent,
   ref,
   toRefs,
+  toRef,
   provide,
   h,
   InjectionKey,
   Ref,
 } from 'vue'
+import { useId } from '../../utils/use-id'
 
 type DiscolsureStateDefinition = {
   // State
@@ -30,7 +32,7 @@ export default defineComponent({
     },
     id: {
       type: [String, Number],
-      default: 'something',
+      default: null,
     },
     modelValue: {
       type: Boolean,
@@ -39,9 +41,9 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
-    const { id, modelValue } = toRefs(props)
-    const isControlled = modelValue.value !== null
-    const isOpen = isControlled ? modelValue : ref(false)
+    const isControlled = props.modelValue !== null
+    const id = ref(props.id ? String(props.id) : `disclosure--${useId()}`)
+    const isOpen = isControlled ? toRef(props, 'modelValue') : ref(false)
 
     const updateOpen = (open: boolean) => {
       emit('update:modelValue', open)
