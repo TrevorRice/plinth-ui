@@ -1,4 +1,14 @@
-import { defineComponent, InjectionKey, Ref, provide, toRefs } from 'vue'
+import {
+  defineComponent,
+  ref,
+  toRefs,
+  toRef,
+  provide,
+  h,
+  InjectionKey,
+  Ref,
+} from 'vue'
+import { useId } from '../../utils/use-id'
 
 type DiscolsureStateDefinition = {
   // State
@@ -9,11 +19,6 @@ type DiscolsureStateDefinition = {
   updateOpen(open: boolean): void
 }
 
-export enum DisclosureStates {
-  Open = 'open',
-  Collapsed = 'collapsed',
-}
-
 export const DisclosureContext: InjectionKey<DiscolsureStateDefinition> = Symbol(
   'DisclosureContext'
 )
@@ -21,21 +26,36 @@ export const DisclosureContext: InjectionKey<DiscolsureStateDefinition> = Symbol
 export default defineComponent({
   name: 'Disclosure',
   props: {
+    as: {
+      type: String,
+      default: 'template',
+    },
     id: {
       type: [String, Number],
-      default: 'something',
+      default: null,
     },
-    open: {
+    modelValue: {
       type: Boolean,
-      default: false,
+      default: null,
     },
   },
-  emits: ['update:open'],
+  emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
-    const updateOpen = (open: boolean) => emit('update:open', open)
-    const { id, open } = toRefs(props)
-    const context = { id, open, updateOpen }
+    const isControlled = props.modelValue !== null
+    const id = ref(props.id ? String(props.id) : `disclosure--${useId()}`)
+    const isOpen = isControlled ? toRef(props, 'modelValue') : ref(false)
+
+    const updateOpen = (open: boolean) => {
+      emit('update:modelValue', open)
+      if (!isControlled) {
+        isOpen.value = open
+      }
+    }
+
+    const context = { id, open: isOpen, updateOpen }
     provide(DisclosureContext, context)
-    return () => slots.default!()
+    return props.as === 'template'
+      ? () => slots.default?.() // Which to use?
+      : () => h(props.as, {}, slots.default!())
   },
 })

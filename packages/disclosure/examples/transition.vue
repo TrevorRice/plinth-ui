@@ -1,8 +1,14 @@
 <template>
   <div>
     <disclosure>
-      <disclosure-button>Click!</disclosure-button>
-      <disclosure-panel>Content</disclosure-panel>
+      <disclosure-button v-slot="{ open }">
+        Open: {{ open }} | Click!
+      </disclosure-button>
+      <transition>
+        <disclosure-panel v-slot="{ open }">
+          Open: {{ open }} Content
+        </disclosure-panel>
+      </transition>
     </disclosure>
   </div>
 </template>
