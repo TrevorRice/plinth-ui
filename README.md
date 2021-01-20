@@ -31,3 +31,9 @@ In the meantime, feel free to refer to each individual component's README below.
 ## Contributing
 
 TBD
+
+## Acknowledgements
+
+Plinth UI has been inspired greatly by the incredible work done on [Reach UI](https://reach.tech/) and [Headless UI](https://headlessui.dev/).
+
+Logo by [Andrei Slobtsov](http://andreis.co/).
