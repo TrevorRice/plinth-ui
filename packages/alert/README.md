@@ -14,7 +14,7 @@ npm install @plinth-ui/alert
 yarn add @plinth-ui/alert
 ```
 
-```sh
+```vue
 import Alert from '@plinth-ui/alert'
 ```
 
@@ -24,15 +24,9 @@ import Alert from '@plinth-ui/alert'
 
 #### Props
 
-| Name   | Type | Validation            | Default  | Description                                                                                                                            |
-| ------ | ---- | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `type` | Enum | `assertive`, `polite` | `polite` | Controls whether the assitive technology should interrupt the user's workflow ("assertive") or wait until the user is idle ("polite"). |
-
-#### Slots
-
-| Name      | Description                  |
-| --------- | ---------------------------- |
-| `default` | Use for the alert's content. |
+| Name   | Type                  | Default  | Description                                                                                                                            |
+| ------ | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `type` | `assertive`, `polite` | `polite` | Controls whether the assitive technology should interrupt the user's workflow ("assertive") or wait until the user is idle ("polite"). |
 
 #### Usage
 
