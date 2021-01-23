@@ -1,7 +1,13 @@
 <template>
   <div>
-    <button @click="setAlerts('polite')">Trigger a polite alert!</button>
-    <button @click="setAlerts('assertive')">Trigger an assertive alert!</button>
+    <button type="button" @click="addAlert('polite')">
+      Trigger a polite alert!
+    </button>
+    <button type="button" @click="addAlert('assertive')">
+      Trigger an assertive alert!
+    </button>
+    <button type="button" @click="clearAlerts">Clear alerts</button>
+
     <alert v-for="(alert, index) in alerts" :key="index" :type="alert.type">
       {{ alert.message }}
     </alert>
@@ -9,24 +15,32 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 import Alert from '@plinth-ui/alert'
 
 export default {
   components: {
     Alert,
   },
-  data() {
-    return {
-      alerts: [],
+  setup() {
+    const alerts = ref([])
+
+    function addAlert(type) {
+      alerts.value.push({ message: `Alert #${this.alerts.length + 1}!`, type })
     }
-  },
-  methods: {
-    setAlerts(type) {
-      this.alerts.push({ message: `Alert #${this.alerts.length + 1}`, type })
-      setTimeout(() => {
-        this.alerts = this.alerts.slice(1)
-      }, 5000)
-    },
+
+    function clearAlerts() {
+      alerts.value = []
+    }
+
+    return { alerts, addAlert, clearAlerts }
   },
 }
 </script>
+
+<style>
+button {
+  display: block;
+  margin-bottom: 8px;
+}
+</style>

@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter, RouterView } from 'vue-router'
 import Home from './components/Home.vue'
 import AlertBasic from '../../alert/examples/basic.vue'
+import AlertStyled from '../../alert/examples/styled.vue'
 import DisclosureBasic from '../../disclosure/examples/basic.vue'
 import DisclosureControlled from '../../disclosure/examples/controlled.vue'
 import DisclosureTransition from '../../disclosure/examples/transition.vue'
@@ -22,6 +23,11 @@ const routes = [
         name: 'Alert (basic)',
         path: '/alert/basic',
         component: AlertBasic,
+      },
+      {
+        name: 'Alert (styled)',
+        path: '/alert/styled',
+        component: AlertStyled,
       },
     ],
   },
