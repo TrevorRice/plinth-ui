@@ -35,10 +35,13 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@plinth-ui/tabs'
     <tab-panel>Panel 2</tab-panel>
   </tab-panels>
 </tabs>
+```
 
+```vue
 // Controlled
-<tabs>
-  <tab-list v-model="activeTabValue">
+
+<tabs v-model="activeTabValue">
+  <tab-list>
     <tab>Tab 1</tab>
     <tab>Tab 2</tab>
   </tab-list>
