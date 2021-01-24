@@ -1,5 +1,13 @@
-import { defineComponent, h, inject, computed } from 'vue'
+import { defineComponent, h, inject, computed, Ref, InjectionKey } from 'vue'
 import { TabsContext } from './tabs'
+
+type TabPanelStateDefinition = {
+  index: Ref<number>
+}
+
+export const TabPanelContext: InjectionKey<TabPanelStateDefinition> = Symbol(
+  'TabPanelContext'
+)
 
 export default defineComponent({
   name: 'TabPanel',
@@ -8,19 +16,13 @@ export default defineComponent({
       type: String,
       default: 'div',
     },
-    index: {
-      type: Number,
-      required: true,
-    },
   },
-  setup(props, { slots }) {
+  render() {
     const context = inject(TabsContext)
-    const active = computed(() => context?.activeIndex.value === props.index)
-    return () =>
-      h(
-        props.as,
-        { style: [{ display: active.value ? 'block' : 'none' }] },
-        slots.default!()
-      )
+    const tabPanelContext = inject(TabPanelContext)
+    const active = computed(
+      () => context?.activeIndex.value === tabPanelContext?.index.value
+    )
+    return active.value ? h(this.$props.as, this.$slots.default!()) : null
   },
 })

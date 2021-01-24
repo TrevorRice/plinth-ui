@@ -1,4 +1,5 @@
-import { defineComponent, h, cloneVNode } from 'vue'
+import { defineComponent, h, provide, ref } from 'vue'
+import { TabPanelContext } from './tab-panel'
 
 export default defineComponent({
   name: 'TabPanels',
@@ -9,9 +10,15 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    const tabPanels = slots.default!().map((node, index) =>
-      cloneVNode(node, { index })
-    )
+    const children = slots.default?.()
+    const tabPanels = children?.map((child, index) => {
+      return h({
+        setup() {
+          provide(TabPanelContext, { index: ref(index) })
+          return () => child
+        },
+      })
+    })
     return () => h(props.as, tabPanels)
   },
 })
