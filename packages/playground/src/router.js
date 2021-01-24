@@ -6,6 +6,7 @@ import DisclosureBasic from '../../disclosure/examples/basic.vue'
 import DisclosureControlled from '../../disclosure/examples/controlled.vue'
 import DisclosureTransition from '../../disclosure/examples/transition.vue'
 import TabsBasic from '../../tabs/examples/basic.vue'
+import TabsControlled from '../../tabs/examples/controlled.vue'
 
 // Automate
 const routes = [
@@ -62,6 +63,11 @@ const routes = [
         name: 'Tabs (basic)',
         path: '/tabs/basic',
         component: TabsBasic,
+      },
+      {
+        name: 'Tabs (controlled)',
+        path: '/tabs/controlled',
+        component: TabsControlled,
       },
     ],
   },
