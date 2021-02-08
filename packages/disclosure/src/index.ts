@@ -1,9 +1,3 @@
-import Disclosure from './disclosure'
-import DisclosureButton from './disclosure-button'
-import DisclosurePanel from './disclosure-panel'
-
-export default {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-}
+export { default as Disclosure } from './disclosure'
+export { default as DisclosureButton } from './disclosure-button'
+export { default as DisclosurePanel } from './disclosure-panel'

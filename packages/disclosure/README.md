@@ -25,7 +25,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 ```vue
 // Basic
 
-<disclosure>
+<disclosure v-slot="{ open }">
  <disclosure-button>Reveal!</disclosure-button>
  <disclosure-panel><!-- ... --></disclosure-panel>
 </disclosure>
@@ -63,11 +63,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 ### DisclosureButton
 
 ```vue
-<disclosure-button
-  v-slot="{ open }"
-  :class="open ? 'button--open' : 'button--closed'"
-  class="button"
->
+<disclosure-button>
   Reveal!
 </disclosure-button>
 ```
@@ -87,7 +83,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@plinth-ui/disclo
 ### DisclosurePanel
 
 ```vue
-<disclosure-panel v-slot="{ open }">
+<disclosure-panel>
   <!-- Panel content -->
 </disclosure-panel>
 ```

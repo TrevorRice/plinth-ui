@@ -18,7 +18,7 @@ export default defineComponent({
             id: context?.id.value,
             tabindex: -1,
           },
-          this.$slots.default!({ open: context?.open.value })
+          this.$slots.default!()
         )
       : null
   },

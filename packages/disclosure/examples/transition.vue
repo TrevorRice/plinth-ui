@@ -1,34 +1,32 @@
 <template>
-  <div>
-    <disclosure>
-      <disclosure-button v-slot="{ open }">
-        Open: {{ open }} | Click!
-      </disclosure-button>
-      <transition>
-        <disclosure-panel v-slot="{ open }">
-          Open: {{ open }} Content
-        </disclosure-panel>
-      </transition>
-    </disclosure>
-  </div>
+  <disclosure>
+    <disclosure-button>Click!</disclosure-button>
+    <transition name="fade">
+      <disclosure-panel>Content</disclosure-panel>
+    </transition>
+  </disclosure>
 </template>
 
 <script>
-import Disclosure from '../src/disclosure.ts'
-import DisclosureButton from '../src/disclosure-button.ts'
-import DisclosurePanel from '../src/disclosure-panel.ts'
-
-// import {
-//   Disclosure,
-//   DisclosureButton,
-//   DisclosurePanel,
-// } from '@plinth-ui/disclosure'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@plinth-ui/disclosure/src'
 
 export default {
-  components: {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-  },
+  components: { Disclosure, DisclosureButton, DisclosurePanel },
 }
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
