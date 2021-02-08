@@ -16,11 +16,12 @@ export default defineComponent({
       h(
         props.as,
         {
+          type: 'button',
           'aria-controls': context?.id.value,
-          'aria-open': context?.open.value,
+          'aria-expanded': context?.open.value,
           onClick: () => context?.updateOpen(!context?.open.value),
         },
-        slots.default!({ open: context?.open.value })
+        slots.default?.()
       )
   },
 })

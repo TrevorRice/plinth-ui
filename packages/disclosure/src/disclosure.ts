@@ -55,7 +55,7 @@ export default defineComponent({
     const context = { id, open: isOpen, updateOpen }
     provide(DisclosureContext, context)
     return props.as === 'template'
-      ? () => slots.default?.() // Which to use?
-      : () => h(props.as, {}, slots.default!())
+      ? () => slots.default?.({ open: isOpen.value }) // Which to use?
+      : () => h(props.as, {}, slots.default?.({ open: isOpen.value }))
   },
 })

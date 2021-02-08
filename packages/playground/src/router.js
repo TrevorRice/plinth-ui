@@ -5,6 +5,7 @@ import AlertStyled from '../../alert/examples/styled.vue'
 import DisclosureBasic from '../../disclosure/examples/basic.vue'
 import DisclosureControlled from '../../disclosure/examples/controlled.vue'
 import DisclosureTransition from '../../disclosure/examples/transition.vue'
+import DisclosureStyled from '../../disclosure/examples/styled.vue'
 import TabsBasic from '../../tabs/examples/basic.vue'
 import TabsControlled from '../../tabs/examples/controlled.vue'
 
@@ -51,6 +52,11 @@ const routes = [
         name: 'Disclosure (transition)',
         path: '/disclosure/transition',
         component: DisclosureTransition,
+      },
+      {
+        name: 'Disclosure (styled)',
+        path: '/disclosure/styled',
+        component: DisclosureStyled,
       },
     ],
   },
