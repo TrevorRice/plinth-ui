@@ -1,9 +1,9 @@
 <template>
   <tabs>
     <tab-list>
-      <tab v-slot="{ active }">Tab 1: {{ active }}</tab>
-      <tab v-slot="{ active }">Tab 2: {{ active }}</tab>
-      <tab v-slot="{ active }">Tab 3: {{ active }}</tab>
+      <tab>Tab 1</tab>
+      <tab>Tab 2</tab>
+      <tab>Tab 3</tab>
     </tab-list>
     <tab-panels>
       <tab-panel>Panel 1</tab-panel>
@@ -14,21 +14,9 @@
 </template>
 
 <script>
-import Tabs from '../src/tabs.ts'
-import TabList from '../src/tab-list.ts'
-import Tab from '../src/tab.ts'
-import TabPanels from '../src/tab-panels.ts'
-import TabPanel from '../src/tab-panel.ts'
-
-// import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@plinth-ui/tabs'
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@plinth-ui/tabs/src'
 
 export default {
-  components: {
-    Tabs,
-    TabList,
-    Tab,
-    TabPanels,
-    TabPanel,
-  },
+  components: { Tabs, TabList, Tab, TabPanels, TabPanel },
 }
 </script>
