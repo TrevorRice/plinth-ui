@@ -25,6 +25,12 @@ export default defineComponent({
       h(
         props.as,
         {
+          id: `tab--${tabContext?.index.value}`,
+          'aria-controls': `panel--${tabContext?.index.value}`,
+          'aria-selected': active.value,
+          tabindex: active.value ? 0 : -1,
+          role: 'tab',
+          type: 'button',
           onClick: () => context?.updateActiveTab(tabContext!.index.value),
         },
         slots.default!({ active: active.value })

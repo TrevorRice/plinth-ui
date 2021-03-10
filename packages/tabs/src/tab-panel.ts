@@ -23,6 +23,16 @@ export default defineComponent({
     const active = computed(
       () => context?.activeIndex.value === tabPanelContext?.index.value
     )
-    return active.value ? h(this.$props.as, this.$slots.default!()) : null
+    return active.value
+      ? h(
+          this.$props.as,
+          {
+            id: `panel--${tabPanelContext?.index.value}`,
+            'aria-labelledby': `tab--${tabPanelContext?.index.value}`,
+            role: 'tabpanel',
+          },
+          this.$slots.default!()
+        )
+      : null
   },
 })

@@ -3,6 +3,7 @@ import { defineComponent, InjectionKey, provide, ref, toRef, Ref } from 'vue'
 type TabsStateDefinition = {
   // State
   activeIndex: Ref<number>
+  orientation: string
 
   // State mutators
   updateActiveTab(index: number): void
@@ -41,7 +42,11 @@ export default defineComponent({
       }
     }
 
-    const context = { activeIndex, updateActiveTab }
+    const context = {
+      activeIndex,
+      orientation: props.orientation,
+      updateActiveTab,
+    }
     provide(TabsContext, context)
     return () => slots.default!()
   },
