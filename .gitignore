@@ -1,4 +1,15 @@
 logs
-*.log
+*log
+.DS_Store
+.parcel-cache
 node_modules
-packages/*/dist
+dist
+
+# Yarn 3
+# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+!/.yarn/versions
